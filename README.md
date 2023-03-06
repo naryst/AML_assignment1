@@ -4,7 +4,7 @@
 In my dataset i tried to make all the possible positions of the cans(Vertical, horizontal, reversed etc.) to make my detection model as general as possible. And in total in my final dataset I got 142 photos. As an experiment in some of the photos I didn't have any of the classes, to see, that will model do in such a case.
 
 2) Step two is to manually annotate all the photos in roboflow. This is one of the most tedious steps as it doesn't require any special skills, but it does take some time. After that, I could easily create a dataset with roboflow, even with already annotated photos. And after the augmentation I got 342 photos (300 in train, 26 in valid and 16 in test).  
- ![[Pasted image 20230306201108.png]]
+ ![asd](report_imgs/1.png)
  and after this with the help of the roboflow lib for python, import this dataset to my notebook is simply 
 ```python
 !pip install roboflow
@@ -33,18 +33,18 @@ Notebook with the code of YoloV8 training process can be found in the file `Yolo
 5) In terms of metrics I got the following resutls:
 For the **YoloV8:**
 On the val data
-![[Pasted image 20230306211345.png]]
+![seconds](report_imgs/2.png)
 
 For the **Faster RCNN**:
 On the val data
-![[Pasted image 20230306211822.png]]
+![third](report_imgs/3.png)
 * In terms of the MeanAveragePrecision both models got moreless the same result. So, they can be considered as equal. Both models do not works perfectly. In the test inference both models detect instance of the Green burn in the picture of cat
-![[Pasted image 20230306212450.png]] ![[Pasted image 20230306212512.png]]
+![4](report_imgs/4.png) ![5](report_imgs/5.png)
 Model give the following results, beacuse in the training dataset is pretty small. And allmost all the training data contains one of the classes in the picture. Thats why, model tries to detect something, that is not energy drink in fact.
 
 
 * In terms of time.  YoloV8 spend ~10 second to train on 1 of 25 epoch. And faster RCNN spend ~50 minuts on training with ~40 seconds per epoch (aprox. 75 epochs). So, Faster RCNN needs more epochs to converge and takes 4 time more time per epoch .
- ![[Pasted image 20230306215902.png]]
+ ![6](report_imgs/6.png)
 In the picture above we may see, that after some experements, researches get, that YOLO of the smallest size works >2 times faster then Faster R-CNN.
 
 
